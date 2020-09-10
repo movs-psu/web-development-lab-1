@@ -1,0 +1,32 @@
+.grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1128px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.grid .grid__column {
+  display: flex;
+  background-color: rgba(255, 230, 230, .6);
+  width: calc(100% / 12);
+  position: relative;
+}
+
+.grid .grid__column:nth-child(2n) {
+  background-color: rgba(225, 225, 255, .2);
+}
+
+.grid .grid__sub-column {
+  background-color: rgba(230, 255, 230, .5);
+  width: 1rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
