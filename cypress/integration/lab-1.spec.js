@@ -2,31 +2,31 @@ const baseURL = "./solution/index.html";
 
 const matchPercentConfig = (percent) => ({
   failureThreshold: percent / 100, // %
-  customDiffConfig: { threshold: 0.01 },
+  customDiffConfig: { threshold: 0.06 },
   failureThresholdType: "percent",
   allowSizeMismatch: true
 });
 
 describe("Lab-1", () => {
-  it("(3б) Страница в целом соответствует эскизу на 1280x720 с точностью более 90%", () => {
+  it("(3б) Страница в целом соответствует эскизу на 1280x720 с точностью более 97%", () => {
     cy.viewport(1280, 720);
     cy.visit(baseURL);
     cy.screenshot("Lab-1-1280x720-simple-screenshot");
-    cy.matchImageSnapshot("Lab-1-1280x720", matchPercentConfig(10));
+    cy.matchImageSnapshot("Lab-1-1280x720", matchPercentConfig(3));
   });
 
-  it("(3б) Страница соответствует эскизу на 1280x720 с точностью более 99.9%", () => {
+  it("(3б) Страница соответствует эскизу на 1280x720 с точностью более 99%", () => {
     cy.viewport(1280, 720);
     cy.visit(baseURL);
     cy.screenshot("Lab-1-1280x720-screenshot");
-    cy.matchImageSnapshot("Lab-1-1280x720", matchPercentConfig(0.1));
+    cy.matchImageSnapshot("Lab-1-1280x720", matchPercentConfig(1));
   });
 
-  it("(2б) Страница соответствует эскизу на 1024x576 с точностью более 99.9%", () => {
+  it("(2б) Страница соответствует эскизу на 1024x576 с точностью более 99%", () => {
     cy.viewport(1024, 576);
     cy.visit(baseURL);
     cy.screenshot("Lab-1-1024x576-screenshot");
-    cy.matchImageSnapshot("Lab-1-1024x576", matchPercentConfig(0.1));
+    cy.matchImageSnapshot("Lab-1-1024x576", matchPercentConfig(1));
   });
 
   it("(1б) Использованы семантические теги (nav, main, footer, article, ul, h1, time)\n присутствуют ссылки <a href=\"#\">: Письма, Написать, @username, Выход, Непрочитанные, Входящие, Отправленные", () => {
