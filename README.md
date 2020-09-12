@@ -16,6 +16,7 @@
 - Используйте `flex`
 - Установите `box-sizing: border` для всех элементов
 - Вы можете использовать заготовку-сетку для отладки (включается добавлением модуля `grid.css` в файле `index.css`)
+- Полезное расширение для Chrome: [PerfectPixel by WellDoneCode](https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi/)
 
 #### Критерии
 - (3б) Страница в целом соответствует эскизу на HD (1280x720);
