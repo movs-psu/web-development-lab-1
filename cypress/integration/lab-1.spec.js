@@ -8,7 +8,7 @@ const config = {
 };
 
 describe("Lab-1", () => {
-  it("should have links <a href=\"#\"> Письма, Написать, @username, Выход, Непрочитанные, Входящие, Отправленные", () => {
+  it("должны быть ссылки <a href=\"#\">: Письма, Написать, @username, Выход, Непрочитанные, Входящие, Отправленные", () => {
     cy.visit(baseURL);
     const links = ["Письма", "Написать", "@username", "Выход", "Непрочитанные", "Входящие", "Отправленные"];
     cy.get("a").each(($a, index) => {
@@ -18,7 +18,7 @@ describe("Lab-1", () => {
     });
   });
 
-  it("should have semantic elements: <nav>, <main>, <footer>, <article>, <ul>, <h1>", () => {
+  it("должны быть семантические теги: <nav>, <main>, <footer>, <article>, <ul>, <h1>", () => {
     cy.visit(baseURL);
     cy.get("nav");
     cy.get("main");
@@ -28,7 +28,7 @@ describe("Lab-1", () => {
     cy.get("h1");
   });
 
-  it("should have <time> elements", () => {
+  it("должны быть элементы <time> для дат", () => {
     cy.visit(baseURL);
     const dates = [
       ["2020-08-28", "28.08.2020"],
@@ -42,14 +42,14 @@ describe("Lab-1", () => {
     });
   });
 
-  it("match screenshot on 1280x720", () => {
+  it("должно соответствовать эталону с точностью > 99% на 1280x720", () => {
     cy.viewport(1280, 720);
     cy.visit(baseURL);
     cy.screenshot("Lab-1-1280x720-screenshot");
     cy.matchImageSnapshot("Lab-1-1280x720", config);
   });
 
-  it("match screenshot on 1024x576", () => {
+  it("должно соответствовать эталону с точностью > 99% на 1024x576", () => {
     cy.viewport(1024, 576);
     cy.visit(baseURL);
     cy.screenshot("Lab-1-1024x576-screenshot");
