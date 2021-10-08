@@ -25,22 +25,28 @@ describe("Lab-1", () => {
   it("(3б) Страница в целом соответствует эскизу на 1280x720 с точностью более 90%", () => {
     cy.viewport(1280, 720);
     cy.visit(baseURL);
-    cy.screenshot("Lab-1-1280x720-simple-screenshot");
-    cy.matchImageSnapshot("Lab-1-1280x720", matchPercentConfig(10));
+    cy.screenshot("1280-720-screenshot");
+    cy.matchImageSnapshot("1280-720", matchPercentConfig(10));
   });
 
-  it("(3б) Страница соответствует эскизу на 1280x720 с точностью более 99.98%", () => {
+  it("(1б) Страница соответствует эскизу на 1280x720 с точностью более 99.98%", () => {
     cy.viewport(1280, 720);
     cy.visit(baseURL);
-    cy.screenshot("Lab-1-1280x720-screenshot");
-    cy.matchImageSnapshot("Lab-1-1280x720", matchPercentConfig(0.02)); //0.08%
+    cy.matchImageSnapshot("1280-720", matchPercentConfig(0.02));
   });
 
-  it("(2б) Страница соответствует эскизу на 1024x576 с точностью более 99.98%", () => {
+  it("(1б) Страница соответствует эскизу на 1200x700 с точностью более 99.98%", () => {
+    cy.viewport(1200, 700);
+    cy.visit(baseURL);
+    cy.screenshot("1200-700-screenshot");
+    cy.matchImageSnapshot("1200-700", matchPercentConfig(0.02));
+  });
+
+  it("(2б) Страница соответствует адаптивному эскизу на 1024x576 с точностью более 99.98% (адаптивность)", () => {
     cy.viewport(1024, 576);
     cy.visit(baseURL);
-    cy.screenshot("Lab-1-1024x576-screenshot");
-    cy.matchImageSnapshot("Lab-1-1024x576", matchPercentConfig(0.02));
+    cy.screenshot("1024-576-screenshot");
+    cy.matchImageSnapshot("1024-576", matchPercentConfig(0.02));
   });
 
   it("(1б) Использованы семантические теги (nav, main, footer, article, ul, h1, time); присутствуют ссылки <a href=\"#\">: Письма, Написать, @username, Выход, Непрочитанные, Входящие, Отправленные", () => {
@@ -53,9 +59,9 @@ describe("Lab-1", () => {
     cy.get("h1");
 
     const dates = [
-      ["2020-08-28", "28.08.2020"],
-      ["2020-08-28", "28.08.2020"],
-      ["2020-08-26", "26.08.2020"]
+      ["2021-08-28", "28.08.2021"],
+      ["2021-08-28", "28.08.2021"],
+      ["2021-08-26", "26.08.2021"]
     ];
     cy.get("time").each(($time, index) => {
       cy.wrap($time)
@@ -70,5 +76,8 @@ describe("Lab-1", () => {
         .should("have.attr", "href", "#");
     });
   });
-});
 
+  it("(1б) Основные параметры заданы через CSS переменные [проверяется вручную]", () => {});
+
+  it("(1б) Вёрстка в целом соответствует BEM [проверяется вручную]", () => {});
+});

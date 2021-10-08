@@ -1,5 +1,5 @@
-const { addMatchImageSnapshotCommand } = require('cypress-image-snapshot/command');
+const { addMatchImageSnapshotCommand } = require("cypress-image-snapshot/command");
 
 addMatchImageSnapshotCommand({
-  customSnapshotsDir: 'snapshots',
+  customSnapshotsDir: "snapshots",
 });
